@@ -8,20 +8,15 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="117dp"
-        app:srcCompat="@drawable/test" />
 
     <TextView
         android:id="@+id/Judul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="ambatuBus"
-        android:textSize="48sp"
-        android:textColor="@color/black" />
+        android:text="Register"
+        android:textColor="@color/black"
+        android:textSize="48sp" />
 
     <LinearLayout
         android:id="@+id/LoginPace"
@@ -31,13 +26,21 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/uname"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
+            android:hint="Username"
+             />
+
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
             android:hint="E-mail"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"/>
 
         <EditText
             android:id="@+id/password"
@@ -47,6 +50,7 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
+
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
@@ -54,35 +58,10 @@
             android:backgroundTint="@color/purple_200"
             android:paddingHorizontal="16dp"
             android:paddingVertical="12dp"
-            android:text="Masuk"
+            android:text="Register"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:cornerRadius="21dp" />
-
-        <TextView
-            android:id="@+id/PertanyaanAkun"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:gravity="center"
-            android:paddingTop="10dp"
-            android:text="Sudah punya akun belum pace?"
-            android:textAlignment="center"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/Daftar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:text="Daftar"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
