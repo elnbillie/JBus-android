@@ -23,5 +23,11 @@
         android:textColor="@color/black"
         android:textSize="48sp" />
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="367dp" />
 
+    <include layout="@layout/footer_pagination"/>
+    <include layout="@layout/bus_view"/>
 </LinearLayout>
