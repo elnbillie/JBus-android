@@ -15,6 +15,8 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ListView;
 import android.widget.LinearLayout;
+
+import com.MuhammadBillieElianJBusRS.jbus_android.model.Account;
 import com.MuhammadBillieElianJBusRS.jbus_android.model.Bus;
 import com.MuhammadBillieElianJBusRS.jbus_android.model.BusArrayAdapter;
 import com.MuhammadBillieElianJBusRS.jbus_android.model.NumbersView;
@@ -24,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Account loggedAccount;
 
     //========================untuk footer paginate====================
     private Button[] btns;
@@ -50,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         busArrayAdapter = new BusArrayAdapter(this, (ArrayList<Bus>) Bus.sampleBusList(3));
         ListView busArrayView = findViewById(R.id.listView);
         busArrayView.setAdapter(busArrayAdapter);
-
 
 
 
