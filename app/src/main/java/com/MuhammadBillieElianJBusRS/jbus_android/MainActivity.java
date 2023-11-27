@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
         busArrayView.setAdapter(busArrayAdapter);
 
 
-
-        //=================================================================
-
         //paginate footer=================================================
         prevButton = findViewById(R.id.prev_page);
         nextButton = findViewById(R.id.next_page);

@@ -2,6 +2,14 @@ package com.MuhammadBillieElianJBusRS.jbus_android.request;
 
 import com.MuhammadBillieElianJBusRS.jbus_android.model.Account;
 import com.MuhammadBillieElianJBusRS.jbus_android.model.BaseResponse;
+import com.MuhammadBillieElianJBusRS.jbus_android.model.Bus;
+import com.MuhammadBillieElianJBusRS.jbus_android.model.BusType;
+import com.MuhammadBillieElianJBusRS.jbus_android.model.Facility;
+import com.MuhammadBillieElianJBusRS.jbus_android.model.Renter;
+import com.MuhammadBillieElianJBusRS.jbus_android.model.Station;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -20,7 +28,7 @@ public interface BaseApiService {
     );
 
     @POST("account/{id}/topUp")
-    Call<BaseResponse<Account>> topUp(
+    Call<BaseResponse<Double>> topUp(
             @Path("id") int id,
             @Query("amount") double amount
     );
@@ -30,4 +38,32 @@ public interface BaseApiService {
             @Query("email") String email,
             @Query("password") String password
     );
+
+    @POST("account/{id}/registerRenter")
+    Call<BaseResponse<Renter>> registerRenter(
+            @Path("id") int id,
+            @Query("companyName") String companyName,
+            @Query("address") String address,
+            @Query("phoneNumber") String phoneNumber
+    );
+
+    @POST("bus/getMyBus")
+    Call<List<Bus>> getMyBus(
+            @Query("accountId") int accountId
+    );
+
+    @GET("station/getAll")
+    Call<List<Station>> getAllStation();
+
+    @POST("bus/create")
+    Call<BaseResponse<Bus>> create(
+            @Query("accountId") int accountId,
+            @Query("name") String name,
+            @Query("capacity") int capacity,
+            @Query("facilities") List<Facility> facilities,
+            @Query("busType") BusType busType,
+            @Query("price") int price,
+            @Query("stationDepartureId") int stationDepartureId,
+            @Query("stationArrivalId") int stationArrivalId);
+
 }

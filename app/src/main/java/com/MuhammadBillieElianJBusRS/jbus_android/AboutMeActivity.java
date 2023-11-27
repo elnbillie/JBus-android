@@ -2,8 +2,10 @@ package com.MuhammadBillieElianJBusRS.jbus_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.content.Context;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,7 +34,8 @@ public class AboutMeActivity extends AppCompatActivity {
     private TextView username;
     private TextView email;
     private TextView balance;
-
+    private TextView textNotRenter, textRegisterCompany, textAlreadyRenter ;
+    private Button buttonManageBus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,11 @@ public class AboutMeActivity extends AppCompatActivity {
         TopUpButton = findViewById(R.id.button);
         amount = findViewById(R.id.balanceInput);
 
+        textNotRenter = findViewById(R.id.text_not_renter);
+        textRegisterCompany = findViewById(R.id.register_company);
+        textAlreadyRenter = findViewById(R.id.text_already_renter);
+        buttonManageBus = findViewById(R.id.manage_bus);
+
         String balances = String.format(Locale.getDefault(), "%.2f", MainActivity.loggedAccount.balance);
 
         initial.setText(getInitials(MainActivity.loggedAccount.name));
@@ -61,6 +69,22 @@ public class AboutMeActivity extends AppCompatActivity {
             topUp();
         });
 
+
+
+        updateRenterStatusViews(textNotRenter, textRegisterCompany, textAlreadyRenter, buttonManageBus);
+
+        textRegisterCompany.setOnClickListener(v->{
+            moveActivity(this, RegisterRenterActivity.class);
+        });
+
+        buttonManageBus.setOnClickListener(v->{
+            moveActivity(this, ManageBusActivity.class);
+        });
+    }
+
+    private void moveActivity(Context ctx, Class<?> cls ){
+        Intent intent = new Intent(ctx, cls);
+        startActivity(intent);
     }
 
     private String getInitials(String name) {
@@ -87,25 +111,37 @@ public class AboutMeActivity extends AppCompatActivity {
         }
 
         double amountD = Double.parseDouble(amountS);
-        mApiService.topUp(userId, amountD).enqueue(new Callback<BaseResponse<Account>>(){
-            public void onResponse(Call<BaseResponse< Account >> call, Response<BaseResponse<Account>> response){
+        mApiService.topUp(userId, amountD).enqueue(new Callback<BaseResponse<Double>>(){
+            public void onResponse(Call<BaseResponse< Double >> call, Response<BaseResponse<Double>> response){
                 if(!response.isSuccessful()){
                     Toast.makeText(mContext, "Application error " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                BaseResponse<Account> res = response.body();
+                BaseResponse<Double> res = response.body();
                 if(res.success){
-                    MainActivity.loggedAccount.balance = res.payload.balance;
+                    MainActivity.loggedAccount.balance += res.payload;
                     String balances = String.format(Locale.getDefault(), "%.2f", MainActivity.loggedAccount.balance);
                     balance.setText("IDR " + balances);
                 }
             }
 
             @Override
-            public void onFailure(Call<BaseResponse<Account>> call, Throwable t) {
+            public void onFailure(Call<BaseResponse<Double>> call, Throwable t) {
                 System.out.println("On Failure");
                 Toast.makeText(mContext, "Invalid Input", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    private void updateRenterStatusViews(TextView textNotRenter, TextView textRegisterCompany, TextView textAlreadyRenter, Button buttonManageBus) {
+        if (MainActivity.loggedAccount.company != null) {
+            textAlreadyRenter.setVisibility(View.VISIBLE);
+            buttonManageBus.setVisibility(View.VISIBLE);
+        } else {
+            textNotRenter.setVisibility(View.VISIBLE);
+            textRegisterCompany.setVisibility(View.VISIBLE);
+        }
+    }
+
+
 }

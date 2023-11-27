@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/RegisterJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Register your company"
+        android:textColor="@color/black"
+        android:textSize="35sp" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="25dp"
+        android:text="Input company name, adress, and phonenumber"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:id="@+id/LayoutRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/companyName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Company Name"
+            />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:hint="Address" />
+
+        <EditText
+            android:id="@+id/PhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:hint="Phone Number"
+            android:inputType="phone" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_200"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="21dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
