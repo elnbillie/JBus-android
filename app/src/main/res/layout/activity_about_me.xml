@@ -1,168 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutMeActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        tools:context=".AboutMeActivity">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/initial"
+            android:id="@+id/initial_name"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_marginVertical="24dp"
             android:background="@drawable/circle"
             android:backgroundTint="@color/black"
-            android:gravity="center"
-            android:text="P"
             android:textColor="@color/white"
+            android:text="P"
             android:textSize="48dp"
-            android:layout_gravity="center_horizontal" />
+            android:gravity="center"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="100dp">
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="24dp">
+
             <LinearLayout
-                android:layout_width="325dp"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="16sp"
                     android:text="USERNAME" />
 
                 <TextView
                     android:id="@+id/username"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="-" />
+                    android:gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    tools:text="-" />
+
             </LinearLayout>
 
-
             <LinearLayout
-                android:layout_width="325dp"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="E-mail" />
+                    android:layout_marginLeft="10dp"
+                    android:textSize="16sp"
+                    android:text="EMAIL"
+                    />
 
                 <TextView
                     android:id="@+id/email"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="-" />
+                    android:gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    tools:text="-" />
             </LinearLayout>
 
-
             <LinearLayout
-                android:layout_width="325dp"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="BALANCE" />
+                    android:layout_marginLeft="10dp"
+                    android:text="BALANCE"
+                    android:textSize="16sp"
+                   />
 
                 <TextView
                     android:id="@+id/balance"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="-" />
+                    android:gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    tools:text="-" />
             </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_horizontal">
-        <EditText
-            android:id="@+id/balanceInput"
-            android:layout_width="229dp"
-            android:layout_height="58dp"
-            android:hint="Top-Up Amount"
-            android:inputType="textEmailAddress"
-            android:layout_gravity="center_horizontal" />
-
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="105dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/purple_200"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp"
-            android:text="TOP UP"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:cornerRadius="21dp" />
-        </LinearLayout>
-
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginTop="24dp"
         android:gravity="center"
-        android:layout_marginTop="30dp">
+        android:orientation="horizontal">
 
-        <!-- For Non-Renters -->
-        <TextView
-            android:id="@+id/text_not_renter"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/top_up_amount"
+            android:layout_width="229dp"
             android:layout_height="wrap_content"
-            android:text="Anda belum terdaftar sebagai renter"
-            android:visibility="gone"/>
-
-        <TextView
-            android:id="@+id/register_company"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daftar Company"
-            android:visibility="gone"/>
-
-        <!-- For Renters -->
-        <TextView
-            android:id="@+id/text_already_renter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Anda sudah terdaftar sebagai renter"
-            android:visibility="gone"/>
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="Top Up Amount"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.296" />
 
         <Button
-            android:id="@+id/manage_bus"
+            android:id="@+id/top_up_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Manage Bus"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="12dp"
-            app:cornerRadius="21dp"
-            android:backgroundTint="@color/purple_200"
-            android:visibility="gone"/>
+            android:text=" TOP UP"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.839"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.296" />
+
     </LinearLayout>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="36dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="36dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/status_renter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anda sudah terdaftar"/>
+
+            <TextView
+                android:id="@+id/register_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Register your Company"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/button_manage_bus"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/purple_700"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:text="Manage Bus"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:cornerRadius="21dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </LinearLayout>

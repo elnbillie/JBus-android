@@ -4,71 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    tools:context=".RegisterRenterActivity"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
-
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/RegisterJudul"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="8dp"
         android:text="Register your company"
         android:textColor="@color/black"
-        android:textSize="35sp" />
+        android:textSize="28dp"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_width="300dp"
-        android:layout_height="25dp"
-        android:text="Input company name, adress, and phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:text="Input company name, address, and phonenumber"
+        android:textColor="@color/black"
         android:textSize="14dp" />
 
     <LinearLayout
-        android:id="@+id/LayoutRegister"
+        android:id="@+id/registration_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="36dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:layout_marginHorizontal="24dp">
 
         <EditText
-            android:id="@+id/companyName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:hint="Company Name"
-            />
-
-        <EditText
-            android:id="@+id/Address"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
-            android:hint="Address" />
-
-        <EditText
-            android:id="@+id/PhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
-            android:hint="Phone Number"
-            android:inputType="phone" />
-
-
-        <Button
-            android:id="@+id/button"
+            android:id="@+id/company_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_200"
+            android:hint="Company Name"
+            android:textColor="@color/black"
+            android:inputType="text"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:textColor="@color/black"
+            android:inputType="text"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/phonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:textColor="@color/black"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/black"
             android:paddingHorizontal="16dp"
             android:paddingVertical="12dp"
-            android:text="Register"
+            android:text="REGISTER"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:cornerRadius="21dp" />
 
-    </LinearLayout>
 
+    </LinearLayout>
 
 </LinearLayout>

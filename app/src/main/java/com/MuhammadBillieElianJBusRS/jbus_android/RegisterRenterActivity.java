@@ -5,27 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.MuhammadBillieElianJBusRS.jbus_android.request.UtilsApi;
 import com.MuhammadBillieElianJBusRS.jbus_android.model.Account;
 import com.MuhammadBillieElianJBusRS.jbus_android.model.BaseResponse;
 import com.MuhammadBillieElianJBusRS.jbus_android.request.BaseApiService;
-import com.MuhammadBillieElianJBusRS.jbus_android.model.Renter;
+import com.MuhammadBillieElianJBusRS.jbus_android.request.UtilsApi;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterRenterActivity extends AppCompatActivity {
-
     private BaseApiService mApiService;
     private Context mContext;
-    private EditText companyName, Address, PhoneNumber;
-    private Button registerButton = null;
+    private EditText commpanyName, address, phoneNumber;
+    private Button registerCompany;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,51 +30,49 @@ public class RegisterRenterActivity extends AppCompatActivity {
 
         mContext = this;
         mApiService = UtilsApi.getApiService();
-        companyName = findViewById(R.id.companyName);
-        Address = findViewById(R.id.Address);
-        PhoneNumber = findViewById(R.id.PhoneNumber);
-        registerButton = findViewById(R.id.button);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                handleRegister();
-            }
+        commpanyName = this.findViewById(R.id.company_name);
+        address = this.findViewById(R.id.address);
+        phoneNumber = this.findViewById(R.id.phonenumber);
+        registerCompany = this.findViewById(R.id.button_register);
+
+        registerCompany.setOnClickListener(v->{
+            handleRegisterCompany();
         });
     }
 
-    protected void handleRegister() {
-        int userId = MainActivity.loggedAccount.id;
-        String companyNameS = companyName.getText().toString();
-        String AddressS = Address.getText().toString();
-        String PhoneS = PhoneNumber.getText().toString();
-        if (companyNameS.isEmpty() || AddressS.isEmpty() || PhoneS.isEmpty()) {
-            Toast.makeText(mContext, "Field cannot be empty",
-                    Toast.LENGTH_SHORT).show();
+    protected void handleRegisterCompany() {
+        // handling empty field
+        String companyNameS = commpanyName.getText().toString();
+        String addressS = address.getText().toString();
+        String phoneNumberS = phoneNumber.getText().toString();
+
+        if (companyNameS.isEmpty() || addressS.isEmpty() || phoneNumberS.isEmpty()) {
+            Toast.makeText(mContext, "Field cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        mApiService.registerRenter(userId, companyNameS, AddressS, PhoneS).enqueue(new Callback<BaseResponse<Renter>>() {
+        mApiService.registerRenter(LoginActivity.loggedAcccount.id, companyNameS, addressS, phoneNumberS).enqueue(new Callback<BaseResponse<Account>>() {
             @Override
-            public void onResponse(Call<BaseResponse<Renter>> call, Response<BaseResponse<Renter>> response) {
+            public void onResponse(Call<BaseResponse<Account>> call, Response<BaseResponse<Account>> response) {
+                // handle the potential 4xx & 5xx error
                 if (!response.isSuccessful()) {
                     Toast.makeText(mContext, "Application error " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                BaseResponse<Renter> res = response.body();
-
-                if (res.success) finish();
-                MainActivity.loggedAccount.company = res.payload;
+                BaseResponse<Account> res = response.body();
+                // if success finish this activity (back to AboutMe activity)
+                if (res.success) mContext.startActivity(new Intent(mContext, AboutMeActivity.class));
                 Toast.makeText(mContext, res.message, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(mContext, AboutMeActivity.class);
-                startActivity(intent);
             }
+
             @Override
-            public void onFailure(Call<BaseResponse<Renter>> call, Throwable t) {
-                Toast.makeText(mContext, "Problem with the server", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<BaseResponse<Account>> call, Throwable t) {
+
             }
         });
     }
+
 
 }

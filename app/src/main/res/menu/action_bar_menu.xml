@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item android:id="@+id/search_button"
-        android:icon="@drawable/baseline_search_24"
-        android:title="Search Button"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="collapseActionView|always" />
-
-    <item android:id="@+id/person_button"
-        android:icon="@drawable/baseline_person_24"
-        android:title="Person Button"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="collapseActionView|always"/>
-
-    <item android:id="@+id/payments_button"
-        android:icon="@drawable/baseline_payments_24"
-        android:title="Payments"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="collapseActionView|always" />
-
+    <item android:id = "@+id/search_button"
+        android:title ="Search Button"
+        android:icon ="@drawable/baseline_search_24"
+        app:iconTint="@color/white"
+        app:showAsAction = "collapseActionView|always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+    <item android:id = "@+id/profile"
+        android:title ="Profile"
+        app:iconTint="@color/white"
+        android:icon ="@drawable/baseline_person_24"
+        app:showAsAction = "collapseActionView|always" />
+    <item android:id = "@+id/payment"
+        android:title ="Payment"
+        app:iconTint="@color/white"
+        android:icon ="@drawable/baseline_payments_24"
+        app:showAsAction = "collapseActionView|always"/>
 </menu>
